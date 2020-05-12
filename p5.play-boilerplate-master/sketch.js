@@ -16,22 +16,26 @@ raindrop = new Raindrop(5,5,5,50);
   /*for (var a = 1; a<10; a++){
     //
   }*/
+  for(var a = 1; a < 2000; a++){
+    var xCordinate = random(0,400);
+    var yCordinate = random(0,-600);
+    
+    var heightrandom = random(5,10);
+    
+    array["rain"+a] = new Raindrop(xCordinate, yCordinate, 5, heightrandom);
+  }
 }
 
 function draw() {
   background(255,255,255);  
-  for(var a = 1; a < 100; a++){
-    var xCordinate = random(0,400);
-    array["rain"+a] = new Raindrop(xCordinate, 200, 5, 10);
-  }
+  
   Engine.update(engine);
-  for(var a = 1; a<100;a++){
+  for(var a = 1; a<2000;a++){
     
     var r = Math.round(random(0,99));
     var g = Math.round(random(0,99));
     var b = Math.round(random(0,99));
     fill("#"+r+g+b);
-    
     array["rain"+a].display();
   }
   raindrop.display();
